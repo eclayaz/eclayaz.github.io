@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+---
+
+<BaseLayout>
+  <section class="flex flex-col-reverse sm:flex-row items-start sm:items-center gap-8 sm:gap-10">
+    <div class="flex-1">
+      <p class="font-mono text-sm text-[var(--color-accent)] mb-3">
+        Hi, I'm
+      </p>
+      <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight mb-4">
+        Nadeesha Dilruwan
+      </h1>
+      <p class="text-lg text-[var(--color-muted)] leading-relaxed mb-6">
+        Senior Full-Stack Engineer building scalable systems + integrating AI/ML at production scale.
+      </p>
+      <SocialLinks />
+    </div>
+
+    <div class="shrink-0">
+      <div
+        class="w-28 h-28 sm:w-32 sm:h-32 rounded-full border-2 border-[var(--color-border)] overflow-hidden bg-[var(--color-surface)] flex items-center justify-center"
+      >
+        <img
+          src="/avatar.jpg"
+          alt="Nadeesha Dilruwan"
+          class="w-full h-full object-cover"
+          onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'font-mono text-3xl text-[var(--color-subtle)]\'>nd</span>';"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-16 space-y-4 text-[var(--color-muted)] leading-relaxed">
+    <p>
+      I build scalable, high-performance systems that solve real business problems — from architecting
+      10M+ transaction pipelines to integrating Claude AI for product intelligence.
+    </p>
+    <p>
+      Full-stack engineer who loves working across infrastructure, backend, and frontend. Currently
+      based in Amsterdam.
+    </p>
+  </section>
+
+  <section class="mt-16 grid sm:grid-cols-2 gap-4">
+    <a
+      href="/projects"
+      class="group rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-5 hover:border-[var(--color-accent)] transition-colors"
+    >
+      <div class="font-mono text-xs text-[var(--color-accent)] mb-2">→ /projects</div>
+      <h3 class="font-medium mb-1">Projects</h3>
+      <p class="text-sm text-[var(--color-subtle)]">
+        Things I've built — open source, side projects, and work I'm proud of.
+      </p>
+    </a>
+    <a
+      href="/about"
+      class="group rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-5 hover:border-[var(--color-accent)] transition-colors"
+    >
+      <div class="font-mono text-xs text-[var(--color-accent)] mb-2">→ /about</div>
+      <h3 class="font-medium mb-1">About</h3>
+      <p class="text-sm text-[var(--color-subtle)]">
+        Background, work history, and what I'm currently exploring.
+      </p>
+    </a>
+  </section>
+</BaseLayout>

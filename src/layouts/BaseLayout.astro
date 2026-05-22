@@ -1,0 +1,80 @@
+---
+import '../styles/global.css';
+import SocialLinks from '../components/SocialLinks.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Nadeesha Dilruwan — Senior Full-Stack Engineer',
+  description = 'Senior Full-Stack Engineer building scalable systems + integrating AI/ML at production scale. Based in Amsterdam.',
+} = Astro.props;
+
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/about', label: 'About' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="min-h-screen flex flex-col bg-[var(--color-bg)] text-[var(--color-text)]">
+    <header class="border-b border-[var(--color-border)]/60 backdrop-blur sticky top-0 z-10 bg-[var(--color-bg)]/80">
+      <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="font-mono text-sm tracking-tight hover:text-[var(--color-accent)]">
+          <span class="text-[var(--color-accent)]">~/</span>nadeesha
+        </a>
+        <nav class="flex items-center gap-6 text-sm">
+          {
+            navLinks.map(({ href, label }) => {
+              const isActive = href === '/' ? pathname === '/' : pathname.startsWith(href);
+              return (
+                <a
+                  href={href}
+                  class={`transition-colors ${
+                    isActive
+                      ? 'text-[var(--color-accent)]'
+                      : 'text-[var(--color-muted)] hover:text-[var(--color-text)]'
+                  }`}
+                >
+                  {label}
+                </a>
+              );
+            })
+          }
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <div class="max-w-3xl mx-auto px-6 py-16">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="border-t border-[var(--color-border)]/60 mt-16">
+      <div class="max-w-3xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--color-subtle)]">
+        <p class="font-mono">
+          © {new Date().getFullYear()} Nadeesha Dilruwan
+        </p>
+        <SocialLinks size="sm" />
+      </div>
+    </footer>
+  </body>
+</html>

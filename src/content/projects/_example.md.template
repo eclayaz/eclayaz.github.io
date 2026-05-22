@@ -1,0 +1,14 @@
+---
+title: Project name
+description: One or two sentence description of what this project does and why it exists.
+tech:
+  - TypeScript
+  - Node.js
+  - AWS
+repo: https://github.com/eclayaz/project-name
+demo: https://example.com
+order: 1
+featured: true
+---
+
+Optional longer-form notes about the project — what you learned, design decisions, links to write-ups. Markdown body is rendered if the project card links to a detail page (not wired by default; the listing only uses frontmatter).

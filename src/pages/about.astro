@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const workHistory = [
+  {
+    role: 'Senior Software Engineer',
+    company: 'Otrium B.V.',
+    location: 'Amsterdam, Netherlands',
+    period: 'July 2023 – Present',
+    description:
+      "Full-stack platform architect building real-time systems (10M+ txns/month), integrating Claude AI for product intelligence, and mentoring engineering teams across infrastructure, backend, and frontend domains.",
+  },
+  {
+    role: 'Technical Lead',
+    company: 'Gapstars',
+    location: 'Colombo, Sri Lanka',
+    period: 'February 2022 – June 2023',
+    description:
+      'Led architectural transformation from monolithic PHP to 8 independent Node.js/TypeScript microservices. Mentored 5 engineers, established TDD/DDD practices, and achieved zero-downtime migration of 200k+ LOC.',
+  },
+  {
+    role: 'Associate Technical Lead',
+    company: 'Swivel Tech',
+    location: 'Colombo, Sri Lanka',
+    period: 'March 2020 – February 2022',
+    description:
+      'Built full-stack features across React frontends and serverless Node.js backends. Managed production deployments, incident response, and legacy PHP modernization.',
+  },
+];
+
+const knownFor = [
+  'Building production-grade AI/ML pipelines with LLMs (Claude, GPT)',
+  'Event-driven architectures + serverless infrastructure at scale',
+  'Mentoring engineers through complex technical migrations',
+  'Full-stack ownership (infrastructure → frontend UI)',
+  'Writing clear, testable, maintainable code',
+];
+
+const learning = [
+  'Advanced LLM/RAG architectures',
+  'Cost optimization for serverless workloads at scale',
+  'Distributed systems & consensus algorithms',
+  'Dutch language (A1 → A2)',
+  'VR/game development for Meta Quest',
+];
+
+const collaborating = [
+  'AI/ML pipelines and LLM integration patterns',
+  'Open-source serverless frameworks',
+  'Systems design mentorship',
+];
+---
+
+<BaseLayout
+  title="About — Nadeesha Dilruwan"
+  description="Senior Software Engineer based in Amsterdam, with 10+ years building high-performance systems in fintech and e-commerce."
+>
+  <header class="mb-12">
+    <p class="font-mono text-sm text-[var(--color-accent)] mb-2">~/about</p>
+    <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight">About</h1>
+  </header>
+
+  <section class="space-y-4 text-[var(--color-muted)] leading-relaxed">
+    <p>
+      I'm a Senior Software Engineer based in Amsterdam with 10+ years building high-performance,
+      scalable systems in fintech and e-commerce. My expertise spans infrastructure (AWS CDK,
+      Terraform, serverless), backend systems (TypeScript, Node.js, Nest.js, event-driven
+      architectures), and full-stack ownership (React, GraphQL, system design).
+    </p>
+    <p>
+      At Otrium, I architect systems handling 10+ million monthly transactions and led the
+      integration of Claude AI to solve multi-brand sizing challenges — reducing customer returns by
+      <span class="text-[var(--color-text)] font-medium">23%</span>. Earlier, as Technical Lead at
+      Gapstars, I guided a team through a complex 200k LOC monolith-to-microservices migration,
+      establishing TDD practices and raising test coverage from
+      <span class="text-[var(--color-text)] font-medium">20% to 78%</span>.
+    </p>
+  </section>
+
+  <div class="mt-8">
+    <a
+      href="/cv.pdf"
+      class="inline-flex items-center gap-2 rounded-md border border-[var(--color-accent)] bg-[var(--color-accent-soft)] px-4 py-2 text-sm font-medium text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-[var(--color-bg)] transition-colors"
+    >
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Download CV
+    </a>
+  </div>
+
+  <section class="mt-16">
+    <h2 class="font-mono text-sm text-[var(--color-subtle)] uppercase tracking-wider mb-6">
+      Experience
+    </h2>
+    <ol class="space-y-8 relative border-l border-[var(--color-border)] pl-6">
+      {
+        workHistory.map((job) => (
+          <li class="relative">
+            <span class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-[var(--color-accent)] ring-4 ring-[var(--color-bg)]"></span>
+            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+              <h3 class="text-lg font-medium">
+                {job.role} <span class="text-[var(--color-muted)]">— {job.company}</span>
+              </h3>
+              <span class="font-mono text-xs text-[var(--color-subtle)] shrink-0">{job.period}</span>
+            </div>
+            <p class="text-sm text-[var(--color-subtle)] mb-2">{job.location}</p>
+            <p class="text-sm text-[var(--color-muted)] leading-relaxed">{job.description}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="mt-16 grid sm:grid-cols-2 gap-8">
+    <div>
+      <h2 class="font-mono text-sm text-[var(--color-subtle)] uppercase tracking-wider mb-4">
+        Education
+      </h2>
+      <p class="text-sm text-[var(--color-muted)]">
+        <span class="text-[var(--color-text)]">BEng (Hons) Software Engineering</span><br />
+        University of Westminster, London — 2018
+      </p>
+    </div>
+    <div>
+      <h2 class="font-mono text-sm text-[var(--color-subtle)] uppercase tracking-wider mb-4">
+        Languages
+      </h2>
+      <ul class="text-sm text-[var(--color-muted)] space-y-1">
+        <li>English <span class="text-[var(--color-subtle)]">— Fluent</span></li>
+        <li>Sinhala <span class="text-[var(--color-subtle)]">— Native</span></li>
+        <li>Dutch <span class="text-[var(--color-subtle)]">— A1 → A2 (learning)</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="mt-16">
+    <h2 class="font-mono text-sm text-[var(--color-subtle)] uppercase tracking-wider mb-4">
+      Interests & Hobbies
+    </h2>
+    <p class="text-sm text-[var(--color-muted)]">
+      VR/game development (Meta Quest 3 + Unity) · Family travel · Open-source contributions ·
+      System design & mentoring
+    </p>
+  </section>
+
+  <section class="mt-16">
+    <h2 class="font-mono text-sm text-[var(--color-subtle)] uppercase tracking-wider mb-4">
+      What I'm known for
+    </h2>
+    <ul class="space-y-2">
+      {
+        knownFor.map((item) => (
+          <li class="flex gap-3 text-sm text-[var(--color-muted)]">
+            <span class="text-[var(--color-accent)] font-mono">▸</span>
+            <span>{item}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="mt-16 grid sm:grid-cols-2 gap-8">
+    <div>
+      <h2 class="font-mono text-sm text-[var(--color-subtle)] uppercase tracking-wider mb-4">
+        Currently learning
+      </h2>
+      <ul class="space-y-1.5 text-sm text-[var(--color-muted)]">
+        {learning.map((item) => <li>· {item}</li>)}
+      </ul>
+    </div>
+    <div>
+      <h2 class="font-mono text-sm text-[var(--color-subtle)] uppercase tracking-wider mb-4">
+        Open to collaborating on
+      </h2>
+      <ul class="space-y-1.5 text-sm text-[var(--color-muted)]">
+        {collaborating.map((item) => <li>· {item}</li>)}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
