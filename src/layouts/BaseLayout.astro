@@ -18,6 +18,36 @@ const navLinks = [
   { href: '/projects', label: 'Projects' },
   { href: '/about', label: 'About' },
 ];
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Nadeesha Dilruwan',
+  url: Astro.site?.toString(),
+  jobTitle: 'Senior Full-Stack Engineer',
+  description:
+    'Senior Full-Stack Engineer building scalable systems and integrating AI/ML at production scale.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Amsterdam',
+    addressCountry: 'NL',
+  },
+  knowsAbout: [
+    'TypeScript',
+    'Node.js',
+    'AWS',
+    'Serverless architecture',
+    'Event-driven systems',
+    'Large language models',
+    'System design',
+  ],
+  sameAs: [
+    'https://github.com/eclayaz',
+    'https://www.linkedin.com/in/nadeesha-dilruwan-417b5b52/',
+  ],
+};
 ---
 
 <!doctype html>
@@ -31,8 +61,10 @@ const navLinks = [
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:url" content={canonicalURL.href} />
+    <link rel="canonical" href={canonicalURL.href} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   </head>
   <body class="min-h-screen flex flex-col bg-[var(--color-bg)] text-[var(--color-text)]">
     <header class="border-b border-[var(--color-border)]/60 backdrop-blur sticky top-0 z-10 bg-[var(--color-bg)]/80">
