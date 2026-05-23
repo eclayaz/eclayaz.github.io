@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://eclayaz.github.io',
+  site: 'https://dilruwan.dev',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
